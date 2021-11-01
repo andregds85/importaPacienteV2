@@ -1,0 +1,34 @@
+@extends('layouts4.app')
+@section('content')
+
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
+
+    <?php
+    use App\Models\Categoria;
+    $tabela = categoria::all();
+?>
+
+<div><td>Macro:</td><td> {{Auth::user()->macro}}</td> </div>
+<?php $m=Auth::user()->macro; ?>
+<?php $itensP = Categoria::where('macro',$m)->get(); ?> 
+
+    <table class="table table-bordered">
+        <tr>
+            <th>id</th>
+            <th>Hospital</th>
+        </tr>
+        @foreach($itensP as $item)
+	    <tr>
+            <td>{{ $item->id }}</td>
+            <td>{{ $item->name }}</td>
+	      
+        </tr>
+        @endforeach
+    </table>
+
+<p class="text-center text-primary"><small>Hospital</small></p>
+@endsection
