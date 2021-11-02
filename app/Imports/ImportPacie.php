@@ -15,7 +15,7 @@ class ImportPacie implements ToModel
         return new Pacientes([
                     
             'categorias_id' => $row[0],
-            'macro' => $row[1]='2',     
+            'macro' => $row[1],     
             'solicitacao' => $row[2],
             'cns' => $row[3],
             'nomedousuario' => $row[4],
